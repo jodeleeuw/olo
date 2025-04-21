@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta viewport="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <head>
     <script src="https://unpkg.com/jspsych@8.2.1"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
     <link rel="stylesheet" href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css"></link>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+      #jspsych-content {
+        height: -webkit-fill-available;
+        height: 100dvh;
+      }
+    </style>
   </head>
   <body></body>
   <script type="text/javascript">
@@ -31,7 +43,7 @@
 
     const view = {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: '<div style="width:100vw; height:100vh; background-color: #0ff; display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
+      stimulus: '<div style="width:100vw; height:100dvh; background-color: #0ff; display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
     }
 
     const timeline = [instructions, adaptation, view];
