@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta viewport="width=device-width, initial-scale=1.0">
+  <head>
+    <script src="https://unpkg.com/jspsych@8.2.1"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css"></link>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    const jsPsych = initJsPsych();
+
+    const instructions = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <p>On the next screen, stare at the + in the center of the orange circle.</p>
+        <p>Try to keep your eyes on the + for the entire time.</p>
+        <p>After 45 seconds, the screen will change. Keep your eyes on the +.</p>
+        <p>You should see an afterimage of a hypersaturated cyan color.</p>
+      `,
+      choices: ['Continue'],
+    }
+
+    const adaptation = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: '<div style="width:200px; height:200px; border-radius: 50%; background-color: #ffa500;display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
+      trial_duration: 45000,
+      choices: "NO_KEYS",
+    }
+
+    const view = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: '<div style="width:100vw; height:100vh; background-color: #0ff; display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
+    }
+
+    const timeline = [instructions, adaptation, view];
+
+    jsPsych.run(timeline);
+  </script>
+</html>
