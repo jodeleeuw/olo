@@ -22,7 +22,7 @@
     const instructions = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `
-        <p>On the next screen, stare at the + in the center of the orange circle.</p>
+        <p>On the next screen, stare at the + in the center of the red circle.</p>
         <p>Try to keep your eyes on the + for the entire time.</p>
         <p>After 45 seconds, the screen will change. Keep your eyes on the +.</p>
         <p>You should see an afterimage of a hypersaturated cyan color.</p>
@@ -32,7 +32,7 @@
 
     const adaptation = {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: '<div style="width:200px; height:200px; border-radius: 50%; background-color: #ffa500;display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
+      stimulus: '<div style="width:200px; height:200px; border-radius: 50%; background-color: #ff0000;display: flex; justify-content: center; align-items: center; font-size:22px;">+</div>',
       trial_duration: 45000,
       choices: "NO_KEYS",
     }
